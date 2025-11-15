@@ -5,6 +5,7 @@ import { Wrench, Home } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { Nova_Flat , Montserrat } from "next/font/google";
+import { useRouter } from "next/navigation";
  
 // Nova Flat font
 const novaFlat = Nova_Flat({
@@ -18,6 +19,7 @@ const montserrat = Montserrat({
 
 export default function HomePage() {
   const [hoverSide, setHoverSide] = useState(null);
+  const router = useRouter();
 
   return (
     <div className="min-h-screen w-full relative overflow-hidden bg-black/80">
@@ -44,18 +46,17 @@ export default function HomePage() {
         }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
       />
-
       {/* MAIN CONTENT */}
-      <div className="absolute inset-0 flex flex-col justify-center items-center px-6 md:px-12">
+      <div className="absolute inset-0 flex flex-col justify-center items-center px-6 md:px-12 ">
 
-        <div className="relative max-w-7xl w-full flex flex-col md:flex-row items-center justify-between">
+        <div className="relative max-w-7xl w-full flex flex-col md:flex-row items-center justify-between ">
 
           {/* LEFT SIDE */}
           <div
             className="cursor-pointer select-none w-full md:w-1/2 py-10 flex flex-col items-start"
             onMouseEnter={() => setHoverSide("left")}
             onMouseLeave={() => setHoverSide(null)}
-            onClick={() => console.log("SHOWROOM")}
+            onClick={() => router.push("/buy")}
           >
             <motion.div
               animate={{ x: hoverSide === "left" ? -15 : 0 }}
@@ -83,7 +84,8 @@ export default function HomePage() {
             className="cursor-pointer select-none w-full md:w-1/2 py-10 flex flex-col items-end"
             onMouseEnter={() => setHoverSide("right")}
             onMouseLeave={() => setHoverSide(null)}
-            onClick={() => console.log("CUSTOMISATION")}
+                      onClick={() => router.push("/customisation")}
+
           >
             <motion.div
               animate={{ x: hoverSide === "right" ? 15 : 0 }}
