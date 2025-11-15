@@ -1,9 +1,20 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Wrench, Home, Car } from "lucide-react"; // Added some example icons
+import { motion, AnimatePresence } from "framer-motion";
+import { Wrench, Home } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { Nova_Flat , Montserrat } from "next/font/google";
+ 
+// Nova Flat font
+const novaFlat = Nova_Flat({
+  subsets: ["latin"],
+  weight: ["400"],
+});
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 export default function HomePage() {
   const [hoverSide, setHoverSide] = useState(null);
@@ -37,11 +48,11 @@ export default function HomePage() {
       {/* MAIN CONTENT */}
       <div className="absolute inset-0 flex flex-col justify-center items-center px-6 md:px-12">
 
-        <div className="relative max-w-5xl w-full flex flex-col md:flex-row items-center justify-between">
+        <div className="relative max-w-7xl w-full flex flex-col md:flex-row items-center justify-between">
 
           {/* LEFT SIDE */}
           <div
-            className="cursor-pointer select-none w-full md:w-1/2 py-10 flex flex-col items-center md:items-start"
+            className="cursor-pointer select-none w-full md:w-1/2 py-10 flex flex-col items-start"
             onMouseEnter={() => setHoverSide("left")}
             onMouseLeave={() => setHoverSide(null)}
             onClick={() => console.log("SHOWROOM")}
@@ -49,10 +60,12 @@ export default function HomePage() {
             <motion.div
               animate={{ x: hoverSide === "left" ? -15 : 0 }}
               transition={{ type: "spring", stiffness: 200 }}
-              className="flex items-center gap-3"
+              className="flex items-center gap-6" // increased gap
             >
               <Home size={40} className="text-white" />
-              <h2 className="text-4xl md:text-6xl font-semibold text-white tracking-tight" style={{fontFamily : "Marsek Demi Regular"}}>
+              <h2
+                className={`${novaFlat.className} text-5xl md:text-6xl font-semibold text-white tracking-tight`}
+              >
                 SHOWROOM
               </h2>
             </motion.div>
@@ -67,7 +80,7 @@ export default function HomePage() {
 
           {/* RIGHT SIDE */}
           <div
-            className="cursor-pointer select-none w-full md:w-1/2 py-10 flex flex-col items-center md:items-end text-center md:text-right"
+            className="cursor-pointer select-none w-full md:w-1/2 py-10 flex flex-col items-end"
             onMouseEnter={() => setHoverSide("right")}
             onMouseLeave={() => setHoverSide(null)}
             onClick={() => console.log("CUSTOMISATION")}
@@ -75,9 +88,11 @@ export default function HomePage() {
             <motion.div
               animate={{ x: hoverSide === "right" ? 15 : 0 }}
               transition={{ type: "spring", stiffness: 200 }}
-              className="flex items-center gap-3 justify-center md:justify-end"
+              className="flex items-center gap-6 justify-end" // increased gap
             >
-              <h2 className="text-4xl md:text-5xl font-semibold text-white tracking-tight">
+              <h2
+                className={`${novaFlat.className} text-5xl md:text-6xl font-semibold text-white tracking-tight`}
+              >
                 CUSTOMISATION
               </h2>
               <Wrench size={40} className="text-white" />
@@ -93,23 +108,35 @@ export default function HomePage() {
 
         </div>
 
-        {/* HOVER DETAILS */}
-        <motion.div
-          className="absolute bottom-10 text-center w-full px-6 md:px-0"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{
-            opacity: hoverSide ? 1 : 0,
-            y: hoverSide ? 0 : 20,
-          }}
-          transition={{ duration: 0.3 }}
-        >
-          {hoverSide === "left" && (
-            <p className="text-white text-lg md:text-xl">Browse our showroom to find your perfect vehicle.</p>
+        {/* HOVER DETAILS WITH FADE OUT */}
+        <AnimatePresence>
+          {hoverSide && (
+            <motion.div
+              className="absolute bottom-10 w-full px-6 md:px-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.3 }}
+            >
+              {hoverSide === "left" && (
+                <div className="text-left max-w-md text-white space-y-2" style={{fontFamily : "montserrat"}}>
+                  <p>Explore our wide range of vehicles.</p>
+                  <p>Find the perfect model that fits your needs.</p>
+                  <p>Check out the latest features and designs.</p>
+                  <p>Experience our showroom like never before.</p>
+                </div>
+              )}
+              {hoverSide === "right" && (
+                <div className="text-left max-w-md ml-auto text-white space-y-2" style={{fontFamily : "montserrat"}}>
+                  <p>Personalize your vehicle with your choice of colors.</p>
+                  <p>Select interior options and accessories.</p>
+                  <p>Configure performance and technology packages.</p>
+                  <p>Create a car that matches your unique style.</p>
+                </div>
+              )}
+            </motion.div>
           )}
-          {hoverSide === "right" && (
-            <p className="text-white text-lg md:text-xl">Customize your vehicle to your exact preferences.</p>
-          )}
-        </motion.div>
+        </AnimatePresence>
 
       </div>
     </div>
