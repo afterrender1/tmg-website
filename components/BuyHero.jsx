@@ -48,8 +48,8 @@ const BuyHero = () => {
                 <span className="px-3 py-1 bg-white/20 backdrop-blur-sm text-xs rounded-full">LIMITED</span>
               </div>
               <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 ${novaFlat.className}`} >
-Mercedes-Benz C Class              </h1>
-              <p className={`text-sm sm:text-base text-gray-200 max-w-full md:max-w-xl ${montserrat.className}` }>
+                Mercedes-Benz C Class              </h1>
+              <p className={`text-sm sm:text-base text-gray-200 max-w-full md:max-w-xl ${montserrat.className}`}>
                 Aerodynamic body kit for LADA Vesta. Transform your ride into a street icon.
               </p>
 
@@ -65,7 +65,7 @@ Mercedes-Benz C Class              </h1>
               </div>
 
               <button className={`mt-6 inline-flex items-center gap-3 px-5 sm:px-6 py-2 sm:py-3 bg-black cursor-pointer  text-white font-bold rounded-full transition-all group ${montserrat.className}`}>
-                BUY NOW 
+                BUY NOW
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
@@ -89,36 +89,36 @@ Mercedes-Benz C Class              </h1>
           </motion.div>
 
           {/* Card 2: Quick Specs */}
-<motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 0.5 }}
-  className="md:col-start-4 md:row-start-3 md:col-span-1 md:row-span-2 h-60 sm:h-72 md:h-60 bg-linear-to-br from-orange-500 to-amber-500 rounded-2xl shadow-lg overflow-hidden relative"
->
-  <Image
-    src="/images/buyheroimages/mainfront.png"
-    alt="Quick Specs"
-    fill
-    className="object-cover"
-  />
-</motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="md:col-start-4 md:row-start-3 md:col-span-1 md:row-span-2 h-60 sm:h-72 md:h-60 bg-linear-to-br from-orange-500 to-amber-500 rounded-2xl shadow-lg overflow-hidden relative"
+          >
+            <Image
+              src="/images/buyheroimages/mainfront.png"
+              alt="Quick Specs"
+              fill
+              className="object-cover"
+            />
+          </motion.div>
 
 
 
           {/* Card 3: Call to Action */}
-        <motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 0.7 }}
-  className="md:col-start-4 md:row-start-5 md:col-span-1 md:row-span-2 rounded-2xl h-60 sm:h-72 md:h-55 shadow-lg border border-white/10 overflow-hidden relative"
->
-  <Image
-    src="/images/buyheroimages/carbg.jpg"
-    alt="Support"
-    fill
-    className="object-cover"
-  />
-</motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 }}
+            className="md:col-start-4 md:row-start-5 md:col-span-1 md:row-span-2 rounded-2xl h-60 sm:h-72 md:h-55 shadow-lg border border-white/10 overflow-hidden relative"
+          >
+            <Image
+              src="/images/buyheroimages/carbg.jpg"
+              alt="Support"
+              fill
+              className="object-cover"
+            />
+          </motion.div>
 
 
         </div>

@@ -44,7 +44,7 @@ const Navbar = () => {
           </Link>
 
           {/* CENTER: Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-4 uppercase " style={{fontFamily : "montserrat"}}>
+          <div className="hidden lg:flex items-center gap-4 uppercase " style={{ fontFamily: "montserrat" }}>
             {navLinks.map((link) => (
               <Link
                 key={link.name}

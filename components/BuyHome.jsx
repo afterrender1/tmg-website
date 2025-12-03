@@ -5,8 +5,8 @@ import BuyHero from './BuyHero'
 const BuyHome = () => {
   return (
     <>
-<Navbar/>
-<BuyHero/>
+      <Navbar />
+      <BuyHero />
 
 
 
