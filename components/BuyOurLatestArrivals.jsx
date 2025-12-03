@@ -4,7 +4,7 @@ import { Montserrat, Poppins } from "next/font/google";
 
 const poppins = Poppins({
   subsets: ['latin'],
-  weight: [ '500'], // Regular, Medium, SemiBold, Bold
+  weight: ['500'], // Regular, Medium, SemiBold, Bold
   variable: '--font-poppins', // Use CSS variable for Tailwind
 });
 
@@ -25,7 +25,7 @@ const vehicleData = [
     price: "£20,995",
     monthlyPayment: "£490.97 p/m",
     highlight: "MAXI+NO VAT+ROTIFORM",
-     imageSrc: "/images/ourlatestarrivels/vmaxi.png",
+    imageSrc: "/images/ourlatestarrivels/vmaxi.png",
 
   },
   {
@@ -35,7 +35,7 @@ const vehicleData = [
     price: "£21,495",
     monthlyPayment: "£502.66 p/m",
     highlight: "5 SEATS+HYBRID BUMPER",
-       imageSrc: "/images/ourlatestarrivels/vcaddy2.png",
+    imageSrc: "/images/ourlatestarrivels/vcaddy2.png",
 
   },
   {
@@ -46,7 +46,7 @@ const vehicleData = [
     price: "£16,995 +VAT",
     monthlyPayment: "£397.30 p/m",
     highlight: "MAXI+TMG+HIGHLINE!",
-     imageSrc: "/images/ourlatestarrivels/vcaddy.png",
+    imageSrc: "/images/ourlatestarrivels/vcaddy.png",
 
   },
   {
@@ -156,38 +156,38 @@ const BuyOurLatestArrivals = () => {
         </header>
 
         {/* Search Bar */}
-     <div className="mb-10 max-w-2xl mx-auto">
-  <div className="relative">
-    <input
-      type="text"
-      placeholder="Search by make, model, or feature..."
-      className="w-full py-3 pl-12 pr-10 text-gray-900 rounded-full bg-[#F2F3F7] shadow-sm 
+        <div className="mb-10 max-w-2xl mx-auto">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search by make, model, or feature..."
+              className="w-full py-3 pl-12 pr-10 text-gray-900 rounded-full bg-[#F2F3F7] shadow-sm 
                  focus:ring-2 focus:ring-black/20 focus:border-black/10 border border-gray-300
                  transition-all outline-none "
-      style={{ fontFamily: "Poppins"}}
-    />
+              style={{ fontFamily: "Poppins" }}
+            />
 
-    {/* Search Icon */}
-    <svg
-      className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-      ></path>
-    </svg>
+            {/* Search Icon */}
+            <svg
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
 
-    {/* Clear Button (X) */}
-    <button className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-black transition">
-      ✕
-    </button>
-  </div>
-</div>
+            {/* Clear Button (X) */}
+            <button className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-black transition">
+              ✕
+            </button>
+          </div>
+        </div>
 
 
         {/* Grid */}
