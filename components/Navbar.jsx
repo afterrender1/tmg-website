@@ -19,11 +19,11 @@ const Navbar = () => {
     { name: "Sold", href: "/sold" },
     { name: "Finance", href: "/finance" },
     { name: "Warranty", href: "/warranty" },
-    { name: "Customisation", href: "/customize" },
+    { name: "Customisation", href: "/customisation" },
     { name: "Gallery", href: "/gallery" },
-    { name: "Sell Your Van", href: "/sell" },
+    { name: "Sell Your Van", href: "/sell-your-van" },
     { name: "Reviews", href: "/reviews" },
-    { name: "Online Shop", href: "/shop" },
+    { name: "Online Shop", href: "/online-shop" },
     { name: "Contact Us", href: "/contact" },
   ];
 
