@@ -2,6 +2,7 @@ import AboutTmg from '@/components/AboutTmg'
 import BuyHome from '@/components/BuyHome'
 import BuyOurLatestArrivals from '@/components/BuyOurLatestArrivals'
 import ContactSection from '@/components/ContactSection'
+import Footer from '@/components/Footer'
 import Reviews from '@/components/Reviews'
 import TmgBehindScenesVideo from '@/components/TmgBehindScenesVideo'
 import TmgFinanceAndVan from '@/components/TmgFinanceAndVan'
@@ -19,6 +20,7 @@ const page = () => {
     <WorkingInPartnership/>
     <Reviews/>
     <ContactSection/>
+    <Footer/>
     
     </>
   )
