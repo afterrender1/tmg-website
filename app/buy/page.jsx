@@ -3,6 +3,7 @@ import BuyHome from '@/components/BuyHome'
 import BuyOurLatestArrivals from '@/components/BuyOurLatestArrivals'
 import TmgBehindScenesVideo from '@/components/TmgBehindScenesVideo'
 import TmgFinanceAndVan from '@/components/TmgFinanceAndVan'
+import WorkingInPartnership from '@/components/WorkingInPartnership'
 import React from 'react'
 
 const page = () => {
@@ -13,6 +14,7 @@ const page = () => {
     <AboutTmg/>
     <TmgFinanceAndVan/>
     <TmgBehindScenesVideo/>
+    <WorkingInPartnership/>
     
     </>
   )
