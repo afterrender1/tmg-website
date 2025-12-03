@@ -1,31 +1,70 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { Poppins, Montserrat } from "next/font/google";
+// *** ADD THIS IMPORT IN YOUR PROJECT ***
+import { motion } from "framer-motion"; 
 
 // 2. CONFIGURE FONTS with variables for explicit use
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600"], variable: '--font-poppins' });
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["700", "800", "900"], variable: '--font-montserrat' });
 
+// --- Framer Motion Variants ---
+// Stagger container for the three main columns
+const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.15, // Delay between each column's animation
+        },
+    },
+};
+
+// Item variant for individual column cards
+const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 20 } },
+};
+
+// Simple fade-up for header and hero section
+const fadeUpVariants = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
+// ------------------------------------
+
 const AboutTmg = () => {
     return (
-        // Apply font variables to the root for access via style attribute
         <section className={`bg-white text-black py-20 px-6 sm:px-12 lg:px-24 ${montserrat.variable} ${poppins.variable}`}>
             <div className="max-w-7xl mx-auto">
 
-                {/* 1. Header (Montserrat) */}
-                <header className="text-center mb-16">
+                {/* 1. Header (Fade Up Animation) */}
+                <motion.header 
+                    initial="hidden" 
+                    whileInView="show" 
+                    variants={fadeUpVariants} 
+                    viewport={{ once: true }} 
+                    className="text-center mb-16"
+                >
                     <p className="text-sm text-gray-500 uppercase tracking-widest mb-3" style={{ fontFamily: 'var(--font-poppins)' }}>
                         ABOUT TMG SPECIALIST VANS
                     </p>
                     <h1 className="text-5xl md:text-6xl font-black mb-4" style={{ fontFamily: 'poppins' }}>
                         The Custom Van Specialists
                     </h1>
-                </header>
+                </motion.header>
 
-                {/* 2. Hero Image Banner (BIG Image then Text) */}
-                <div className="relative w-full aspect-21/9 rounded-xl overflow-hidden shadow-2xl mb-20 border border-gray-100">
+                {/* 2. Hero Image Banner (Simple Fade Up) */}
+                <motion.div 
+                    initial="hidden" 
+                    whileInView="show" 
+                    variants={fadeUpVariants} 
+                    viewport={{ once: true }} 
+                    className="relative w-full aspect-21/9 rounded-xl overflow-hidden shadow-2xl mb-20 border border-gray-100"
+                >
                     <Image
-                        // Using the first provided image for the main banner
                         src="/images/ourlatestarrivels/vcaddy.png"
                         alt="TMG Custom Van Build - Full View"
                         fill
@@ -40,13 +79,19 @@ const AboutTmg = () => {
                             We transform vans inside and out, creating one-off builds that turn heads.
                         </p>
                     </div>
-                </div>
+                </motion.div>
 
-                {/* 3. Three-Column Content Section (Structured Text) */}
-                <div className="grid lg:grid-cols-3 gap-10">
+                {/* 3. Three-Column Content Section (Staggered Grid Animation) */}
+                <motion.div 
+                    initial="hidden" 
+                    whileInView="show" 
+                    variants={containerVariants} 
+                    viewport={{ once: true, amount: 0.3 }} 
+                    className="grid lg:grid-cols-3 gap-10"
+                >
 
-                    {/* Column 1: Mission and Specialities */}
-                    <div className="p-6 bg-gray-50 rounded-lg border-t-4 border-black shadow-sm">
+                    {/* Column 1: Mission and Specialities (motion.div item) */}
+                    <motion.div variants={itemVariants} className="p-6 bg-gray-50 rounded-lg border-t-4 border-black shadow-sm">
                         <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: 'var(--font-montserrat)' }}>
                             Our Mission
                         </h3>
@@ -64,10 +109,10 @@ const AboutTmg = () => {
                                 <li><span className="text-black mr-2">▪</span> Ford Transit Customs</li>
                             </ul>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    {/* Column 2: Quality Assurance */}
-                    <div className="p-6 bg-white rounded-lg border-t-4 border-black shadow-md">
+                    {/* Column 2: Quality Assurance (motion.div item) */}
+                    <motion.div variants={itemVariants} className="p-6 bg-white rounded-lg border-t-4 border-black shadow-md">
                         <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: 'var(--font-montserrat)' }}>
                             Quality Guarantee
                         </h3>
@@ -101,10 +146,10 @@ const AboutTmg = () => {
                                 className="object-cover rounded-lg"
                             />
                         </div>
-                    </div>
+                    </motion.div>
 
-                    {/* Column 3: Finance and Contact (CTA) */}
-                    <div className="p-6 bg-gray-50 rounded-lg border-t-4 border-black shadow-sm">
+                    {/* Column 3: Finance and Contact (CTA) (motion.div item) */}
+                    <motion.div variants={itemVariants} className="p-6 bg-gray-50 rounded-lg border-t-4 border-black shadow-sm">
                         <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: 'var(--font-montserrat)' }}>
                             Finance & Next Steps
                         </h3>
@@ -115,7 +160,7 @@ const AboutTmg = () => {
                         <div className="space-y-4">
                             <a
                                 href="#"
-                                className="block px-6 py-3 bg-black hover:text-black hover:border border hover:bg-white text-white text-center font-semibold rounded-full  transition shadow-lg"
+                                className="block px-6 py-3 bg-black hover:text-black hover:border border hover:bg-white text-white text-center font-semibold rounded-full transition shadow-lg"
                                 style={{ fontFamily: 'var(--font-poppins)' }}
                             >
                                 Get a Finance Quote
@@ -125,15 +170,15 @@ const AboutTmg = () => {
                             </p>
                             <a
                                 href="tel:0123456789"
-                                className="block text-xl text-black font-   bold text-center mt-4"
+                                className="block text-xl text-black font-bold text-center mt-4"
                                 style={{ fontFamily: 'var(--font-montserrat)' }}
                             >
                                 Call Us Today!
                             </a>
                         </div>
-                    </div>
+                    </motion.div>
 
-                </div>
+                </motion.div>
             </div>
         </section>
     );
