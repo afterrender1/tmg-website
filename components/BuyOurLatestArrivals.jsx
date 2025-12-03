@@ -131,6 +131,7 @@ const VehicleCard = ({ vehicle }) => (
         Check Availability
       </button>
     </div>
+
   </div>
 );
 
@@ -196,6 +197,19 @@ const BuyOurLatestArrivals = () => {
             <VehicleCard key={`v-${index}`} vehicle={vehicle} />
           ))}
         </div>
+        <div className={`max-w-3xl mx-auto my-6 p-6 bg-gray-50 border border-gray-200   rounded-xl ${poppins.className}`}>
+          <p className="text-sm text-gray-700 leading-relaxed">
+            <span className="font-bold text-gray-800">Finance Representative Example:</span>{" "}
+            CS: Payable by <span className="font-semibold text-gray-900">48 payments of £537.74</span>.
+            Payments are based on a duration of agreement of 48 months, a cash price OTR of
+            <span className="font-semibold text-gray-900"> £22,995</span> with a deposit of
+            <span className="font-semibold text-gray-900"> £2,299.50</span>, leaving an amount of credit of
+            <span className="font-semibold text-gray-900"> £20,695.50</span>. This agreement results in a
+            representative <span className="font-semibold text-red-600">11.9% APR</span> and a total amount payable of
+            <span className="font-semibold text-green-700"> £28,121.02</span>.
+          </p>
+        </div>
+
       </div>
     </div>
   );
