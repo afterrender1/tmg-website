@@ -1,22 +1,50 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
-import { Montserrat, Poppins } from "next/font/google";
+import { Poppins, Montserrat } from "next/font/google";
+// Import motion from framer-motion (requires external installation)
+import { motion } from "framer-motion"; 
 
 const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['500'], // Regular, Medium, SemiBold, Bold
-  variable: '--font-poppins', // Use CSS variable for Tailwind
+  weight: ['500'],
+  variable: '--font-poppins',
 });
 
 const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['700', '800', '900'], // Bold, ExtraBold, Black
-  variable: '--font-montserrat', // Use CSS variable for Tailwind
+  weight: ['700', '800', '900'],
+  variable: '--font-montserrat',
 });
 
+// --- Framer Motion Variants ---
+
+// Container for staggering the vehicle cards
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1, // Delay between each card's animation
+    },
+  },
+};
+
+// Variants for individual vehicle cards
+const itemVariants = {
+  hidden: { opacity: 0, y: 50 },
+  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } },
+};
+
+// Variants for header and finance bar (simple fade-up)
+const fadeUpVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
 
 
-// Data with imageSrc added
+// Data with imageSrc added (unchanged)
 const vehicleData = [
   {
     title: "MAXI+NO VAT+ROTIFORM",
@@ -26,7 +54,6 @@ const vehicleData = [
     monthlyPayment: "£490.97 p/m",
     highlight: "MAXI+NO VAT+ROTIFORM",
     imageSrc: "/images/ourlatestarrivels/vmaxi.png",
-
   },
   {
     title: "5 SEATS+HYBRID BUMPER",
@@ -36,7 +63,6 @@ const vehicleData = [
     monthlyPayment: "£502.66 p/m",
     highlight: "5 SEATS+HYBRID BUMPER",
     imageSrc: "/images/ourlatestarrivels/vcaddy2.png",
-
   },
   {
     title: "MAXI+TMG+HIGHLINE!",
@@ -47,7 +73,6 @@ const vehicleData = [
     monthlyPayment: "£397.30 p/m",
     highlight: "MAXI+TMG+HIGHLINE!",
     imageSrc: "/images/ourlatestarrivels/vcaddy.png",
-
   },
   {
     title: "TMG-RS CREW VAN+6 SEATER",
@@ -61,17 +86,19 @@ const vehicleData = [
   },
 ];
 
-// Vehicle Card with image
+// Vehicle Card component converted to motion.div
 const VehicleCard = ({ vehicle }) => (
-  <div className="flex flex-col bg-white rounded-xl border border-gray-200 overflow-hidden transition-shadow duration-300 hover:shadow-xl ">
-
+  <motion.div
+    variants={itemVariants} // Apply item animation variant
+    className="flex flex-col bg-white rounded-xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+  >
     {/* Vehicle Image */}
     <div className="relative w-full h-48 sm:h-56 bg-gray-100 rounded-t-xl overflow-hidden">
       <Image
         src={vehicle.imageSrc}
         alt={vehicle.title}
         fill
-        className="object-cover"
+        className="object-cover transition-transform duration-500 hover:scale-[1.05]"
       />
     </div>
 
@@ -124,15 +151,16 @@ const VehicleCard = ({ vehicle }) => (
         {vehicle.monthlyPayment} (Estimate)
       </p>
 
-      <button
-        className="cursor-pointer mt-4 w-full py-2.5 text-sm font-semibold uppercase border hover:text-black hover:bg-white tracking-wider rounded text-white bg-black hover:border transition-colors duration-200"
+      <motion.button
+        whileTap={{ scale: 0.95 }} // Added subtle tap animation
+        className="cursor-pointer mt-4 w-full py-2.5 text-sm font-semibold uppercase border tracking-wider rounded text-white bg-black 
+                   hover:text-black hover:bg-white hover:border-black transition-colors duration-200"
         style={{ fontFamily: "Poppins, sans-serif" }}
       >
         Check Availability
-      </button>
+      </motion.button>
     </div>
-
-  </div>
+  </motion.div>
 );
 
 // Main Component
@@ -140,7 +168,14 @@ const BuyOurLatestArrivals = () => {
   return (
     <div className="min-h-screen bg-white p-8 sm:p-12">
       <div className="max-w-7xl mx-auto">
-        <header className="mb-12 text-center">
+        
+        {/* Header (Fade Up Animation) */}
+        <motion.header
+          initial="hidden"
+          animate="show"
+          variants={fadeUpVariants}
+          className="mb-12 text-center"
+        >
           <h1
             className="text-xs font-semibold text-gray-600 uppercase tracking-widest mb-1"
             style={{ fontFamily: "Poppins" }}
@@ -154,17 +189,22 @@ const BuyOurLatestArrivals = () => {
           >
             Latest Commercial Vans
           </h2>
-        </header>
+        </motion.header>
 
-        {/* Search Bar */}
-        <div className="mb-10 max-w-2xl mx-auto">
+        {/* Search Bar (Fade Up Animation) */}
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={fadeUpVariants}
+          className="mb-10 max-w-2xl mx-auto"
+        >
           <div className="relative">
             <input
               type="text"
               placeholder="Search by make, model, or feature..."
               className="w-full py-3 pl-12 pr-10 text-gray-900 rounded-full bg-[#F2F3F7] shadow-sm 
-                 focus:ring-2 focus:ring-black/20 focus:border-black/10 border border-gray-300
-                 transition-all outline-none "
+                   focus:ring-2 focus:ring-black/20 focus:border-black/10 border border-gray-300
+                   transition-all outline-none "
               style={{ fontFamily: "Poppins" }}
             />
 
@@ -188,16 +228,30 @@ const BuyOurLatestArrivals = () => {
               ✕
             </button>
           </div>
-        </div>
+        </motion.div>
 
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        {/* Grid (Staggered Animation) */}
+        <motion.div
+          initial="hidden"
+          whileInView="show" // Animate when it scrolls into view
+          viewport={{ once: true, amount: 0.2 }}
+          variants={containerVariants}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+        >
           {vehicleData.map((vehicle, index) => (
             <VehicleCard key={`v-${index}`} vehicle={vehicle} />
           ))}
-        </div>
-        <div className={`max-w-3xl mx-auto my-6 p-6 bg-gray-50 border border-gray-200   rounded-xl ${poppins.className}`}>
+        </motion.div>
+
+        {/* Finance Representative Example (Fade Up Animation) */}
+        <motion.div
+          initial="hidden"
+          whileInView="show" // Animate when it scrolls into view
+          viewport={{ once: true, amount: 0.5 }}
+          variants={fadeUpVariants}
+          className={`max-w-3xl mx-auto my-6 p-6 bg-gray-50 border border-gray-200 rounded-xl ${poppins.className}`}
+        >
           <p className="text-sm text-gray-700 leading-relaxed">
             <span className="font-bold text-gray-800">Finance Representative Example:</span>{" "}
             CS: Payable by <span className="font-semibold text-gray-900">48 payments of £537.74</span>.
@@ -208,7 +262,7 @@ const BuyOurLatestArrivals = () => {
             representative <span className="font-semibold text-red-600">11.9% APR</span> and a total amount payable of
             <span className="font-semibold text-green-700"> £28,121.02</span>.
           </p>
-        </div>
+        </motion.div>
 
       </div>
     </div>
