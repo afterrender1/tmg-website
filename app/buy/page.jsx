@@ -1,6 +1,7 @@
 import AboutTmg from '@/components/AboutTmg'
 import BuyHome from '@/components/BuyHome'
 import BuyOurLatestArrivals from '@/components/BuyOurLatestArrivals'
+import ContactSection from '@/components/ContactSection'
 import Reviews from '@/components/Reviews'
 import TmgBehindScenesVideo from '@/components/TmgBehindScenesVideo'
 import TmgFinanceAndVan from '@/components/TmgFinanceAndVan'
@@ -17,7 +18,7 @@ const page = () => {
     <TmgBehindScenesVideo/>
     <WorkingInPartnership/>
     <Reviews/>
-    
+    <ContactSection/>
     
     </>
   )
