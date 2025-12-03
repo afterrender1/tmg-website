@@ -1,3 +1,4 @@
+import AboutTmg from '@/components/AboutTmg'
 import BuyHome from '@/components/BuyHome'
 import BuyOurLatestArrivals from '@/components/BuyOurLatestArrivals'
 import React from 'react'
@@ -7,6 +8,7 @@ const page = () => {
     <>
     <BuyHome/>
     <BuyOurLatestArrivals/>
+    <AboutTmg/>
     
     </>
   )

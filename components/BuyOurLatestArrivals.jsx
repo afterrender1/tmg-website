@@ -125,7 +125,7 @@ const VehicleCard = ({ vehicle }) => (
       </p>
 
       <button
-        className="cursor-pointer mt-4 w-full py-2.5 text-sm font-semibold uppercase hover:text-black hover:bg-white tracking-wider rounded text-white bg-black hover:border transition-colors duration-200"
+        className="cursor-pointer mt-4 w-full py-2.5 text-sm font-semibold uppercase border hover:text-black hover:bg-white tracking-wider rounded text-white bg-black hover:border transition-colors duration-200"
         style={{ fontFamily: "Poppins, sans-serif" }}
       >
         Check Availability
