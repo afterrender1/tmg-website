@@ -2,12 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Poppins, Montserrat } from "next/font/google";
-import { Search } from 'lucide-react'; // Icon for a clean, modern look
+import { Search } from 'lucide-react';
 import Navbar from "./Navbar";
 import WorkingInPartnership from "./WorkingInPartnership";
 import Reviews from "./Reviews";
 import ContactSection from "./ContactSection";
-import Footer from "./Footer";
 
 // Fonts
 const poppins = Poppins({
@@ -18,16 +17,15 @@ const poppins = Poppins({
 
 const montserrat = Montserrat({
     subsets: ["latin"],
-    weight: ["500"], // Boldest weights for high-impact typography
+    weight: ["500"],
     variable: "--font-montserrat",
 });
 
-// Motion Variants (Reused)
 const containerVariants = {
     hidden: { opacity: 0 },
     show: {
         opacity: 1,
-        transition: { staggerChildren: 0.07 }, // Slightly faster stagger
+        transition: { staggerChildren: 0.07 },
     },
 };
 
@@ -36,20 +34,14 @@ const itemVariants = {
     show: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 15 } },
 };
 
-// Expanded Placeholder Image URLs
 const IMAGES = [
-    // Two Large Pink/Special Builds
     { src: "/images/gallery/pink1.png", layout: "large" },
     { src: "/images/gallery/pink2.png", layout: "small" },
-    // Two Gray/Metallic Builds
     { src: "/images/gallery/gray1.png", layout: "small" },
-    { src: "/images/gallery/gray2.png", layout: "medium" }, // Medium size to break the pattern
-    // Internal/Detail Shots
+    { src: "/images/gallery/gray2.png", layout: "medium" },
     { src: "/images/gallery/stair1.png", layout: "small" },
     { src: "/images/gallery/stair2.png", layout: "small" },
-    // Red/Performance Build
     { src: "/images/gallery/red2.png", layout: "medium" },
-    // New additions for variety and fullness
     { src: "/images/showroom/ftc130ps.png", layout: "small" },
     { src: "/images/showroom/vcm1.4.png", layout: "small" },
     { src: "/images/showroom/vcm2.03.png", layout: "medium" },
@@ -60,12 +52,12 @@ const IMAGES = [
 const getGridClasses = (layout) => {
     switch (layout) {
         case 'large':
-            return "md:col-span-2 md:row-span-2 aspect-[4/3] md:aspect-auto"; // Very prominent
+            return "col-span-2 row-span-2 sm:col-span-2 sm:row-span-2 md:col-span-2 md:row-span-2 lg:col-span-2 lg:row-span-2 aspect-[4/3]";
         case 'medium':
-            return "md:col-span-1 md:row-span-2 aspect-[1/2] md:aspect-auto"; // Tall column
+            return "col-span-2 row-span-1 sm:col-span-1 sm:row-span-2 md:col-span-1 md:row-span-2 lg:col-span-1 lg:row-span-2 aspect-[2/3]";
         case 'small':
         default:
-            return "aspect-square"; // Standard square card
+            return "col-span-1 row-span-1 aspect-square";
     }
 };
 
@@ -73,34 +65,32 @@ export default function Gallery() {
     return (
         <>
             <Navbar />
-            <div className="bg-white py-20"> {/* Changed outer background to white for contrast */}
+            <div className="bg-white py-12 sm:py-16 lg:py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                    {/* === Header Section === */}
+                    {/* Header */}
                     <motion.header
                         initial={{ opacity: 0, y: -20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="text-center mb-16 border-b border-gray-200 pb-8"
+                        className="text-center mb-12 sm:mb-16 border-b border-gray-200 pb-6 sm:pb-8"
                     >
-                        <h1
-                            className={`text-5xl md:text-6xl font-black text-black mb-3 ${montserrat.className}`}
-                        >
+                        <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-black mb-2 sm:mb-3 ${montserrat.className}`}>
                             Our Signature Van Builds
                         </h1>
-                        <p className={`text-xl text-gray-700 max-w-3xl mx-auto ${poppins.className}`}>
+                        <p className={`text-base sm:text-lg md:text-xl text-gray-700 max-w-3xl mx-auto ${poppins.className}`}>
                             A look inside the precision, style, and bespoke engineering that defines every TMG creation.
                         </p>
                     </motion.header>
 
-                    {/* === Image Grid Section (Masonry-like) === */}
+                    {/* Image Grid */}
                     <motion.div
                         variants={containerVariants}
                         initial="hidden"
                         whileInView="show"
                         viewport={{ once: true, amount: 0.1 }}
-                        className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 p-4 bg-gray-50 rounded-xl shadow-inner"
+                        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 md:gap-6 p-2 sm:p-4 bg-gray-50 rounded-xl shadow-inner"
                     >
                         {IMAGES.map((image, idx) => (
                             <motion.div
@@ -113,26 +103,24 @@ export default function Gallery() {
                                     alt={`Gallery Image ${idx + 1}`}
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
-
-                                {/* Modern Hover Overlay */}
                                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <Search className="w-10 h-10 text-white" />
+                                    <Search className="w-8 sm:w-10 h-8 sm:h-10 text-white" />
                                 </div>
                             </motion.div>
                         ))}
                     </motion.div>
 
-                    {/* === Footer CTA === */}
+                    {/* CTA */}
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.5 }}
                         transition={{ delay: 0.2 }}
-                        className="text-center mt-12"
+                        className="text-center mt-8 sm:mt-12"
                     >
                         <a
                             href="/contact"
-                            className={`inline-block px-8 py-3 text-lg font-semibold uppercase tracking-wider rounded-full bg-black text-white shadow-lg transition-all duration-300 hover:bg-gray-800 hover:scale-[1.02] ${poppins.className}`}
+                            className={`inline-block px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg font-semibold uppercase tracking-wider rounded-full bg-black text-white shadow-lg transition-all duration-300 hover:bg-gray-800 hover:scale-[1.02] ${poppins.className}`}
                         >
                             Start Customising Your Van
                         </a>
@@ -140,6 +128,7 @@ export default function Gallery() {
 
                 </div>
             </div>
+
             <WorkingInPartnership />
             <Reviews />
             <ContactSection />
