@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight, CheckCircle, Star } from "lucide-react";
 import { Montserrat, Nova_Flat } from "next/font/google";
+import { useRouter } from "next/navigation";
 const novaFlat = Nova_Flat({
   subsets: ["latin"],
   weight: ["400"],
@@ -14,7 +15,11 @@ const montserrat = Montserrat({
   weight: ["400"],
 });
 
+
+
 const BuyHero = () => {
+  const router = useRouter();
+
   return (
     <section className="min-h-screen text-white py-10 px-4 sm:px-6 md:px-8 lg:px-12">
       <div className="mx-auto max-w-[1950px]">
@@ -64,7 +69,9 @@ const BuyHero = () => {
                 </div>
               </div>
 
-              <button className={`mt-6 inline-flex items-center gap-3 px-5 sm:px-6 py-2 sm:py-3 bg-black cursor-pointer  text-white font-bold rounded-full transition-all group ${montserrat.className}`}>
+              <button onClick={()=> {
+                router.push("/showroom")
+              }} className={`mt-6 inline-flex items-center gap-3 px-5 sm:px-6 py-2 sm:py-3 bg-black cursor-pointer  text-white font-bold rounded-full transition-all group ${montserrat.className}`}>
                 BUY NOW
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
