@@ -1,8 +1,13 @@
+import Finance from '@/components/Finance'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>page</div>
+    <>
+    
+    <Finance/>
+    
+    </>
   )
 }
 
