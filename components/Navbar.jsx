@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Menu, X, User } from "lucide-react";
+import { Menu, X, User, Target } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
@@ -23,7 +23,7 @@ const Navbar = () => {
     { name: "Gallery", href: "/gallery" },
     { name: "Sell Your Van", href: "/sell-your-van" },
     { name: "Reviews", href: "/reviews" },
-    { name: "Online Shop", href: "/online-shop" },
+    { name: "Online Shop", href: "https://tmgvans.shop/", target: "_blank" },
     { name: "Contact Us", href: "/contact" },
   ];
 
@@ -56,6 +56,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.href}
+                target={link.target ? link.target : "_self"}
                 className="px-2 py-1 rounded hover:text-black/50 transition whitespace-nowrap"
               >
                 {link.name}
