@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { Poppins, Montserrat } from "next/font/google";
 import { motion } from "framer-motion";
 import { Star, ThumbsUp, MessageCircle } from 'lucide-react';
@@ -23,13 +23,10 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
-// Motion Variants (Unchanged)
+// Motion Variants
 const containerVariants = {
   hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08 },
-  },
+  show: { opacity: 1, transition: { staggerChildren: 0.08 } },
 };
 
 const itemVariants = {
@@ -37,7 +34,6 @@ const itemVariants = {
   show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } },
 };
 
-// Full list of reviews (Unchanged)
 const ALL_REVIEWS = [
   { author: "The Space To Breathe Collective", date: "Oct 18, 2024", rating: 5, description: "It's not your normal way to review a van company, starting with the words 'Kindness, understanding and strong connections'. These are my lasting impression of working with Anton at TMG. You can add to that, 'Professional, dedicated, skilful and precise' I first took my 9 year old Caddy Camper conversion into TMG last November to have my front seats reu...", platform: "Facebook" },
   { author: "Walter Rommelrath", date: "Oct 17, 2024", rating: 5, description: "Bought a citreon Berlingo van of these guys the van was in fantastic condition well presented well done Tmg would recommend them many thanks Walter rommelrath", platform: "Facebook" },
@@ -83,40 +79,40 @@ const ALL_REVIEWS = [
   { author: "Wayne Letson", date: "Nov 23, 2021", rating: 5, description: "What can I say Trade Motor Group. From initial enquiry to purchase is smooth and efficient. I personally went for one of there custom caddy builds couldn’t be happier. I still check in with the team to see what new builds are going on because once you buy from Trade motor Group your treated like part of the family.", platform: "Facebook" },
 ];
 
-
 export default function ReviewsForPage() {
   const totalReviews = ALL_REVIEWS.length;
-  // Since all are 5-star, the average is 5.0
   const averageRating = 5.0;
 
   return (
     <>
       <Navbar />
 
-      <div className="bg-white py-16"> {/* Changed outer container to white background */}
+      <div className="bg-white py-12 sm:py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header / Summary Section (Black/White Style) */}
+          {/* Header */}
           <motion.header
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-12 border-b border-gray-300 pb-8" // Lighter border
+            className="text-center mb-12 border-b border-gray-300 pb-8"
           >
-            <h2 className={`text-5xl font-extrabold text-black ${montserrat.className}`}>
+            <h2 className={`text-3xl sm:text-4xl md:text-5xl font-extrabold text-black ${montserrat.className}`}>
               Customer Trust & Reviews
             </h2>
-            <div className="flex justify-center items-center mt-4 space-x-4">
-              <span className={`text-6xl font-black text-black ${montserrat.className}`}>{averageRating.toFixed(1)}</span>
-              <div className="flex flex-col items-start">
-                <div className="flex text-black text-3xl"> {/* Star color changed to black/dark gray */}
+
+            <div className="flex flex-col sm:flex-row justify-center items-center mt-4 space-y-2 sm:space-y-0 sm:space-x-4">
+              <span className={`text-4xl sm:text-5xl md:text-6xl font-black text-black ${montserrat.className}`}>
+                {averageRating.toFixed(1)}
+              </span>
+              <div className="flex flex-col items-center sm:items-start">
+                <div className="flex text-black text-xl sm:text-2xl md:text-3xl">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-6 h-6 fill-black/80 text-black/80" />
+                    <Star key={i} className="w-4 sm:w-5 md:w-6 h-4 sm:h-5 md:h-6 fill-black/80 text-black/80" />
                   ))}
                 </div>
-                <p className={`text-gray-600 text-lg mt-1 ${poppins.className}`}>
-                  Based on **{totalReviews}** verified reviews.
+                <p className={`text-gray-600 text-sm sm:text-base md:text-lg mt-1 ${poppins.className}`}>
+                  Based on <strong>{totalReviews}</strong> verified reviews.
                 </p>
-
               </div>
             </div>
           </motion.header>
@@ -127,28 +123,27 @@ export default function ReviewsForPage() {
             whileInView="show"
             viewport={{ once: true, amount: 0.1 }}
             variants={containerVariants}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           >
-            {/* Limit to showing first 12 reviews in the grid for cleaner layout */}
             {ALL_REVIEWS.slice(0, 12).map((review, index) => (
               <ReviewCard key={index} review={review} />
             ))}
           </motion.div>
 
-          {/* View More CTA */}
+          {/* View More */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ delay: 0.2 }}
-            className="text-center mt-12"
+            className="text-center mt-10 sm:mt-12"
           >
             <a
-              href="#" // Replace with actual link to full reviews page or platform
-              className={`inline-flex items-center px-8 py-3 text-lg font-semibold uppercase tracking-wider rounded-full bg-black text-white shadow-xl transition-all duration-300 hover:bg-gray-800 hover:scale-[1.02] ${poppins.className}`}
+              href="#"
+              className={`inline-flex items-center px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-lg font-semibold uppercase tracking-wider rounded-full bg-black text-white shadow-lg transition-all duration-300 hover:bg-gray-800 hover:scale-[1.02] ${poppins.className}`}
             >
               View All {totalReviews} Reviews
-              <ThumbsUp className="w-5 h-5 ml-3" />
+              <ThumbsUp className="w-4 sm:w-5 h-4 sm:h-5 ml-2 sm:ml-3" />
             </a>
           </motion.div>
         </div>
@@ -157,69 +152,63 @@ export default function ReviewsForPage() {
       <WorkingInPartnership />
       <Reviews />
       <ContactSection />
+      <Footer />
     </>
   );
 }
 
 function ReviewCard({ review }) {
   const [open, setOpen] = useState(false);
-  // Simple approximation of maximum visible characters before '...'
   const MAX_VISIBLE_CHARS = 250;
   const needsReadMore = review.description.length > MAX_VISIBLE_CHARS;
 
   return (
-    <motion.div
-      variants={itemVariants}
-      className="relative h-full"
-    >
+    <motion.div variants={itemVariants} className="relative h-full">
       <div
-        className="group relative bg-gray-50 border border-gray-300 rounded-3xl p-6 shadow-lg h-full flex flex-col
-hover:bg-gray-100 hover:border-black transition-all duration-500" // Hover changes to light gray and black border
+        className="group relative bg-gray-50 border border-gray-300 rounded-3xl p-4 sm:p-6 flex flex-col h-full hover:bg-gray-100 hover:border-black transition-all duration-500"
       >
-        {/* Glow effect (Adjusted to subtle gray/white) */}
-        <div className="absolute inset-0 rounded-3xl bg-linear-to-br from-black/5 to-transparent opacity-0
-group-hover:opacity-10 transition-opacity duration-500 pointer-events-none"></div>
+        {/* Glow effect */}
+        <div className="absolute inset-0 rounded-3xl bg-linear-to-br from-black/5 to-transparent opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none"></div>
 
         <div className="relative flex flex-col h-full">
           {/* Rating & Date */}
-          <div className="flex justify-between items-start mb-4 border-b border-gray-200 pb-3">
-            <div className="flex text-black text-xl space-x-0.5">
+          <div className="flex justify-between items-start mb-3 sm:mb-4 border-b border-gray-200 pb-2 sm:pb-3">
+            <div className="flex text-black text-sm sm:text-base md:text-lg space-x-0.5">
               {[...Array(review.rating)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-black/80 text-black/80" />
+                <Star key={i} className="w-4 sm:w-5 md:w-5 h-4 sm:h-5 md:h-5 fill-black/80 text-black/80" />
               ))}
             </div>
-            <span className={`text-gray-500 text-sm font-light ${poppins.className}`}>
+            <span className={`text-gray-500 text-xs sm:text-sm font-light ${poppins.className}`}>
               {review.date}
             </span>
           </div>
 
           {/* Description */}
-          <div className="flex-1">
+          <div className="flex-1 mb-3">
             <p
-              className={`text-gray-900 text-base leading-relaxed mb-4 ${open ? "" : "line-clamp-5"
-                } ${poppins.className}`}
+              className={`text-gray-900 text-sm sm:text-base leading-relaxed ${open ? "" : "line-clamp-5"} ${poppins.className}`}
             >
-              <MessageCircle className="w-4 h-4 inline mr-2 text-black/80 align-text-bottom" /> {/* Icon color adjusted */}
+              <MessageCircle className="w-3 sm:w-4 h-3 sm:h-4 inline mr-1 sm:mr-2 text-black/80 align-text-bottom" />
               {review.description}
             </p>
           </div>
 
-          {/* Read More button (only show if needed) */}
+          {/* Read More */}
           {needsReadMore && (
             <button
               onClick={() => setOpen(!open)}
-              className={`text-black text-sm font-semibold underline hover:text-gray-700 transition-colors self-start mb-2 ${poppins.className}`} // Read More adjusted
+              className={`text-black text-xs sm:text-sm font-semibold underline hover:text-gray-700 transition-colors self-start mb-2 ${poppins.className}`}
             >
               {open ? "Show Less ^" : "Read More..."}
             </button>
           )}
 
           {/* Author & platform */}
-          <div className="mt-auto pt-3 border-t border-gray-200">
-            <p className={`text-black text-lg font-bold ${montserrat.className}`}>
+          <div className="mt-auto pt-2 sm:pt-3 border-t border-gray-200">
+            <p className={`text-black text-sm sm:text-base font-bold ${montserrat.className}`}>
               — {review.author}
             </p>
-            <p className={`text-gray-600 text-sm font-medium ${poppins.className}`}>
+            <p className={`text-gray-600 text-xs sm:text-sm font-medium ${poppins.className}`}>
               Verified on {review.platform}
             </p>
           </div>
@@ -228,3 +217,8 @@ group-hover:opacity-10 transition-opacity duration-500 pointer-events-none"></di
     </motion.div>
   );
 }
+
+
+
+
+
