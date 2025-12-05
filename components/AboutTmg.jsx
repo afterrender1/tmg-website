@@ -48,7 +48,7 @@ const AboutTmg = () => {
                         ABOUT TMG SPECIALIST VANS
                     </p>
                     <h1
-                        className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl font-black mb-4"
+                        className="text-4xl sm:text-5xl md:text-4xl xl:text-5xl 2xl:text-5xl font-black mb-4"
                         style={{ fontFamily: 'var(--font-poppins)' }}
                     >
                         The Custom Van Specialists
