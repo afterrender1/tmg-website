@@ -47,7 +47,7 @@ const VehicleCard = ({ vehicle }) => (
         variants={itemVariants}
         className="flex flex-col bg-white rounded-xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
     >
-        <div className="relative w-full aspect-[4/3] bg-gray-100 overflow-hidden">
+        <div className="relative w-full aspect-4/3 bg-gray-100 overflow-hidden">
             <Image
                 src={vehicle.imageSrc}
                 alt={vehicle.title}
