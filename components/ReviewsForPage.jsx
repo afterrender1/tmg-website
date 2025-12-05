@@ -157,7 +157,6 @@ export default function ReviewsForPage() {
       <WorkingInPartnership />
       <Reviews />
       <ContactSection />
-      <Footer />
     </>
   );
 }

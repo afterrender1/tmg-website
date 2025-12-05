@@ -123,7 +123,6 @@ const Warranty = () => {
             <WorkingInPartnership />
             <Reviews />
             <ContactSection />
-            <Footer />
         </>
     );
 }

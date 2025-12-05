@@ -143,7 +143,6 @@ export default function Gallery() {
             <WorkingInPartnership />
             <Reviews />
             <ContactSection />
-            <Footer />
         </>
     );
 }

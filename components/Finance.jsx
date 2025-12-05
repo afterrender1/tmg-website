@@ -198,7 +198,6 @@ const Finance = () => {
             <WorkingInPartnership />
             <Reviews />
             <ContactSection />
-            <Footer />
         </>
     );
 };

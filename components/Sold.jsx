@@ -11,7 +11,6 @@ import { Poppins, Montserrat } from "next/font/google";
 import WorkingInPartnership from "./WorkingInPartnership";
 import Reviews from "./Reviews";
 import ContactSection from "./ContactSection";
-import Footer from "./Footer";
 import Navbar from "./Navbar";
 
 const poppins = Poppins({
@@ -266,7 +265,6 @@ const Sold = () => {
             <WorkingInPartnership />
             <Reviews />
             <ContactSection />
-            <Footer />
         </>
     );
 };

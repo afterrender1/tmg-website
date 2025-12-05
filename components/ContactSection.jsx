@@ -155,7 +155,6 @@ const ContactSection = () => {
 
                 </div>
             </section>
-            <Footer />
         </>
     );
 };

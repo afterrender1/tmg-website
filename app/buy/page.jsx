@@ -20,7 +20,6 @@ const page = () => {
     <WorkingInPartnership/>
     <Reviews/>
     <ContactSection/>
-    <Footer/>
     
     </>
   )

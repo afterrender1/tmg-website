@@ -1,4 +1,5 @@
 import Finance from '@/components/Finance'
+import Footer from '@/components/Footer'
 import React from 'react'
 
 const page = () => {
@@ -6,6 +7,7 @@ const page = () => {
     <>
     
     <Finance/>
+    <Footer/>
     
     </>
   )
