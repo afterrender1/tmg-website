@@ -48,7 +48,7 @@ const Warranty = () => {
                                     Our Commitment to Quality & Coverage
                                 </h2>
                                 <p className="text-gray-700 leading-relaxed text-base sm:text-lg">
-                                    All the vans that we supply are prepared to our own very high standards and come with a brand new MOT and full service from point of sale. 
+                                    All the vans that we supply are prepared to our own very high standards and come with a brand new MOT and full service from point of sale.
                                     However, sometimes unforeseen failures can occur—they are machines with thousands of moving components.
                                 </p>
                                 <div className="p-5 sm:p-6 bg-blue-50 border-l-4 border-blue-600 text-blue-800 rounded-lg">
@@ -92,7 +92,7 @@ const Warranty = () => {
                                     We Stand by Our Promises
                                 </h2>
                                 <p className="text-gray-700 leading-relaxed text-base sm:text-lg">
-                                    We take our responsibility with this warranty very seriously and do not just offload this responsibility to some far-away insurance company who may not have your best interests at heart. 
+                                    We take our responsibility with this warranty very seriously and do not just offload this responsibility to some far-away insurance company who may not have your best interests at heart.
                                 </p>
                                 <p className="text-xl sm:text-2xl font-bold text-black border-l-4 border-black pl-4 py-2">
                                     Want to ask others? Simply look at our reviews!

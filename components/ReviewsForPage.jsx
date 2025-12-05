@@ -90,75 +90,75 @@ export default function ReviewsForPage() {
   const averageRating = 5.0;
 
   return (
-  <>
-  <Navbar/>
-  
-    <div className="bg-white py-16"> {/* Changed outer container to white background */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header / Summary Section (Black/White Style) */}
-        <motion.header
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12 border-b border-gray-300 pb-8" // Lighter border
-        >
-          <h2 className={`text-5xl font-extrabold text-black ${montserrat.className}`}>
-            Customer Trust & Reviews
-          </h2>
-          <div className="flex justify-center items-center mt-4 space-x-4">
-            <span className={`text-6xl font-black text-black ${montserrat.className}`}>{averageRating.toFixed(1)}</span>
-            <div className="flex flex-col items-start">
-              <div className="flex text-black text-3xl"> {/* Star color changed to black/dark gray */}
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-6 h-6 fill-black/80 text-black/80" /> 
-                ))}
-              </div>
-              <p className={`text-gray-600 text-lg mt-1 ${poppins.className}`}>
-                Based on **{totalReviews}** verified reviews.
-              </p>
+    <>
+      <Navbar />
 
-            </div>
-          </div>
-        </motion.header>
-
-        {/* Review Grid */}
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.1 }}
-          variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {/* Limit to showing first 12 reviews in the grid for cleaner layout */}
-          {ALL_REVIEWS.slice(0, 12).map((review, index) => (
-            <ReviewCard key={index} review={review} />
-          ))}
-        </motion.div>
-
-        {/* View More CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ delay: 0.2 }}
-          className="text-center mt-12"
-        >
-          <a
-            href="#" // Replace with actual link to full reviews page or platform
-            className={`inline-flex items-center px-8 py-3 text-lg font-semibold uppercase tracking-wider rounded-full bg-black text-white shadow-xl transition-all duration-300 hover:bg-gray-800 hover:scale-[1.02] ${poppins.className}`}
+      <div className="bg-white py-16"> {/* Changed outer container to white background */}
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header / Summary Section (Black/White Style) */}
+          <motion.header
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12 border-b border-gray-300 pb-8" // Lighter border
           >
-            View All {totalReviews} Reviews
-            <ThumbsUp className="w-5 h-5 ml-3" />
-          </a>
-        </motion.div>
-      </div>
-    </div>
+            <h2 className={`text-5xl font-extrabold text-black ${montserrat.className}`}>
+              Customer Trust & Reviews
+            </h2>
+            <div className="flex justify-center items-center mt-4 space-x-4">
+              <span className={`text-6xl font-black text-black ${montserrat.className}`}>{averageRating.toFixed(1)}</span>
+              <div className="flex flex-col items-start">
+                <div className="flex text-black text-3xl"> {/* Star color changed to black/dark gray */}
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-6 h-6 fill-black/80 text-black/80" />
+                  ))}
+                </div>
+                <p className={`text-gray-600 text-lg mt-1 ${poppins.className}`}>
+                  Based on **{totalReviews}** verified reviews.
+                </p>
 
-    <WorkingInPartnership/>
-    <Reviews/>
-    <ContactSection/>
-    <Footer/>
-  </>
+              </div>
+            </div>
+          </motion.header>
+
+          {/* Review Grid */}
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={containerVariants}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {/* Limit to showing first 12 reviews in the grid for cleaner layout */}
+            {ALL_REVIEWS.slice(0, 12).map((review, index) => (
+              <ReviewCard key={index} review={review} />
+            ))}
+          </motion.div>
+
+          {/* View More CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ delay: 0.2 }}
+            className="text-center mt-12"
+          >
+            <a
+              href="#" // Replace with actual link to full reviews page or platform
+              className={`inline-flex items-center px-8 py-3 text-lg font-semibold uppercase tracking-wider rounded-full bg-black text-white shadow-xl transition-all duration-300 hover:bg-gray-800 hover:scale-[1.02] ${poppins.className}`}
+            >
+              View All {totalReviews} Reviews
+              <ThumbsUp className="w-5 h-5 ml-3" />
+            </a>
+          </motion.div>
+        </div>
+      </div>
+
+      <WorkingInPartnership />
+      <Reviews />
+      <ContactSection />
+      <Footer />
+    </>
   );
 }
 

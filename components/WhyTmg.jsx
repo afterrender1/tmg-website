@@ -142,10 +142,10 @@ export default function WhyTMG() {
                     </motion.div>
                 </div>
             </div>
-            <WorkingInPartnership/>
-            <Reviews/>
-            <ContactSection/>
-            <Footer/>
+            <WorkingInPartnership />
+            <Reviews />
+            <ContactSection />
+            <Footer />
         </>
     );
 }

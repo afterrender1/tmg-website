@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { Poppins, Montserrat } from "next/font/google";
 // *** ADD THIS IMPORT IN YOUR PROJECT ***
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
 
 // 2. CONFIGURE FONTS with variables for explicit use
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600"], variable: '--font-poppins' });
@@ -41,11 +41,11 @@ const AboutTmg = () => {
             <div className="max-w-7xl mx-auto">
 
                 {/* 1. Header (Fade Up Animation) */}
-                <motion.header 
-                    initial="hidden" 
-                    whileInView="show" 
-                    variants={fadeUpVariants} 
-                    viewport={{ once: true }} 
+                <motion.header
+                    initial="hidden"
+                    whileInView="show"
+                    variants={fadeUpVariants}
+                    viewport={{ once: true }}
                     className="text-center mb-16"
                 >
                     <p className="text-sm text-gray-500 uppercase tracking-widest mb-3" style={{ fontFamily: 'var(--font-poppins)' }}>
@@ -57,11 +57,11 @@ const AboutTmg = () => {
                 </motion.header>
 
                 {/* 2. Hero Image Banner (Simple Fade Up) */}
-                <motion.div 
-                    initial="hidden" 
-                    whileInView="show" 
-                    variants={fadeUpVariants} 
-                    viewport={{ once: true }} 
+                <motion.div
+                    initial="hidden"
+                    whileInView="show"
+                    variants={fadeUpVariants}
+                    viewport={{ once: true }}
                     className="relative w-full aspect-21/9 rounded-xl overflow-hidden shadow-2xl mb-20 border border-gray-100"
                 >
                     <Image
@@ -82,11 +82,11 @@ const AboutTmg = () => {
                 </motion.div>
 
                 {/* 3. Three-Column Content Section (Staggered Grid Animation) */}
-                <motion.div 
-                    initial="hidden" 
-                    whileInView="show" 
-                    variants={containerVariants} 
-                    viewport={{ once: true, amount: 0.3 }} 
+                <motion.div
+                    initial="hidden"
+                    whileInView="show"
+                    variants={containerVariants}
+                    viewport={{ once: true, amount: 0.3 }}
                     className="grid lg:grid-cols-3 gap-10"
                 >
 

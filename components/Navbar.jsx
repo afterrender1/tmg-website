@@ -50,7 +50,7 @@ const Navbar = () => {
             // text-xs (smaller font) to fit more links
             // max-w-lg (larger maximum width) to give more room
             className={`hidden xl:flex items-center gap-2 uppercase text-xs font-semibold overflow-x-auto no-scrollbar whitespace-nowrap ${montserrat.className}`}
-            style={{ maxWidth: "60vw" }} 
+            style={{ maxWidth: "60vw" }}
           >
             {navLinks.map((link) => (
               <Link
@@ -74,7 +74,7 @@ const Navbar = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               // 🟢 RESPONSIVE CHANGE: Using xl:hidden to match the xl:flex of the desktop menu
-              className="xl:hidden p-2 rounded hover:bg-gray-200 transition" 
+              className="xl:hidden p-2 rounded hover:bg-gray-200 transition"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

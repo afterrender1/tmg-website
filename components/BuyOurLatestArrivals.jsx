@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { Poppins, Montserrat } from "next/font/google";
 // Import motion from framer-motion (requires external installation)
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -168,7 +168,7 @@ const BuyOurLatestArrivals = () => {
   return (
     <div className="min-h-screen bg-white p-8 sm:p-12">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Header (Fade Up Animation) */}
         <motion.header
           initial="hidden"

@@ -2,20 +2,20 @@
 
 import React from "react";
 // Import motion from framer-motion (requires external installation)
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
 
 // --- Framer Motion Variant ---
 const fadeUpVariants = {
-    hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.9, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.9, ease: "easeOut" } },
 };
 
 const TmgBehindScenesVideo = () => {
   return (
     <section className="bg-white py-20 px-6 sm:px-12 lg:px-24">
-      
+
       {/* Main Content Wrapper (Applies Fade Up) */}
-      <motion.div 
+      <motion.div
         initial="hidden"
         whileInView="show" // Animate when it scrolls into view
         variants={fadeUpVariants}
@@ -39,9 +39,9 @@ const TmgBehindScenesVideo = () => {
         </p>
 
         {/* Video Container (Also gets the fade effect) */}
-        <motion.div 
+        <motion.div
           // Subtle scaling effect to draw attention
-          whileHover={{ scale: 1.01 }} 
+          whileHover={{ scale: 1.01 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
           className="relative pb-[56.25%] h-0 overflow-hidden rounded-2xl shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300"
         >

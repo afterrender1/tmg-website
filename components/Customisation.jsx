@@ -55,7 +55,7 @@ const services = [
         title: "Premium Carpet Lining",
         description:
             "Transform your noisy and cold VW Caddy/Transporter or Ford into a warm, quiet, and insulated cabin space with our quality lining package.",
-               image: "/images/customisation/carpet.png",
+        image: "/images/customisation/carpet.png",
 
         icon: HardHat,
     },
