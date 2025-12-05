@@ -203,7 +203,6 @@ const Showroom = () => {
             <WorkingInPartnership />
             <Reviews />
             <ContactSection />
-            <Footer />
         </>
     );
 };
