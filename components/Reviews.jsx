@@ -5,6 +5,7 @@ import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { Poppins, Montserrat } from "next/font/google";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500"] });
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["700"] });
@@ -133,7 +134,7 @@ const Reviews = () => {
 
                 {/* CTA */}
                 <div className="text-center mt-16">
-                    <a
+                    <Link
                         href="/reviews"
                         className={`inline-block px-10 py-3.5 bg-white text-gray-900 font-semibold text-lg uppercase tracking-wider 
                         rounded-lg border border-gray-300 shadow-md 
@@ -142,7 +143,7 @@ const Reviews = () => {
                         ${poppins.className}`}
                     >
                         View All Reviews
-                    </a>
+                    </Link>
                 </div>
             </div>
 

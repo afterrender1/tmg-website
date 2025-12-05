@@ -8,6 +8,7 @@ import WorkingInPartnership from "./WorkingInPartnership";
 import Reviews from "./Reviews";
 import ContactSection from "./ContactSection";
 import Footer from "./Footer";
+import Link from "next/link";
 
 // Fonts
 const poppins = Poppins({
@@ -85,12 +86,12 @@ export default function WhyTMG() {
                 <p className={`mt-3 text-lg text-gray-300 max-w-2xl mx-auto ${poppins.className}`}>
                     We are the region's premier destination for discerning van owners who demand the highest quality and attention to detail when personalising their prized Volkswagen Caddys.
                 </p>
-                <a
+                <Link
                     href="/contact"
                     className={`inline-block mt-6 px-6 py-2 text-sm font-semibold uppercase tracking-wider rounded-md bg-white text-black shadow-xl transition-all duration-300 hover:bg-gray-200 hover:scale-[1.02] ${poppins.className}`}
                 >
                     Start Your Dream Build
-                </a>
+                </Link>
             </div>
 
             <div className="py-12">
@@ -128,7 +129,7 @@ export default function WhyTMG() {
                                     {idx === sections.length - 1 && (
                                         <div className="mt-6 pt-3 border-t border-gray-700/50">
                                             <a
-                                                href="/transporter-packs"
+                                                href="#"
                                                 className={`inline-flex items-center text-sm font-semibold uppercase tracking-wider ${isDark ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-700'} ${poppins.className}`}
                                             >
                                                 Explore the TMG Camper Pack Details &rarr;

@@ -5,6 +5,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Poppins, Montserrat } from "next/font/google";
 import { Phone, MapPin, Clock } from "lucide-react";
+import Link from "next/link";
+import Footer from "./Footer";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500"], variable: '--font-poppins' });
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["500"], variable: '--font-montserrat' });
@@ -38,6 +40,7 @@ const gridItemVariants = {
 
 const ContactSection = () => {
     return (
+   <>
         <section className={`py-24 px-6 lg:px-12 bg-white overflow-hidden ${montserrat.variable} ${poppins.variable}`}>
             <div className="max-w-7xl mx-auto">
 
@@ -161,16 +164,18 @@ const ContactSection = () => {
                     <p className={`text-2xl font-medium text-gray-700 mb-8 ${poppins.className}`}>
                         Can’t visit? We offer nationwide delivery & video viewings.
                     </p>
-                    <a
+                    <Link
                         href="/contact"
                         className={`inline-block px-12 py-6 bg-black text-white font-bold text-xl uppercase tracking-wider rounded-2xl hover:bg-gray-900 transition shadow-2xl ${montserrat.className}`}
                     >
                         Send Us a Message
-                    </a>
+                    </Link>
                 </motion.div>
 
             </div>
         </section>
+        <Footer/>
+   </>
     );
 };
 

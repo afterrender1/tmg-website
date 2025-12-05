@@ -8,6 +8,7 @@ import Image from 'next/image'; // Added Image import for proper Next.js usage
 import { Wrench, PaintBucket, Car, HardHat, Bolt, Zap } from 'lucide-react';
 import Navbar from "./Navbar";
 import WhyTMG from "./WhyTmg";
+import Link from "next/link";
 
 // Fonts
 const poppins = Poppins({
@@ -179,12 +180,12 @@ export default function Customisation() {
                         <h3 className={`text-2xl font-bold text-gray-900 mb-4 ${montserrat.className}`}>
                             Ready to Start Your Build?
                         </h3>
-                        <a
+                        <Link
                             href="/contact"
                             className={`inline-block px-8 py-3 text-lg font-semibold border hover:text-black hover:bg-white uppercase tracking-wider rounded-md bg-black text-white shadow-xl transition-all duration-300 hover:scale-[1.02] ${poppins.className}`}
                         >
                             Contact Our Specialists
-                        </a>
+                        </Link>
                     </motion.div>
 
                 </div>
