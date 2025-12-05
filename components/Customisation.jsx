@@ -9,6 +9,7 @@ import { Wrench, PaintBucket, Car, HardHat, Bolt, Zap } from 'lucide-react';
 import Navbar from "./Navbar";
 import WhyTMG from "./WhyTmg";
 import Link from "next/link";
+import TmgBehindScenesVideo from "./TmgBehindScenesVideo";
 
 // Fonts
 const poppins = Poppins({
@@ -190,6 +191,7 @@ export default function Customisation() {
 
                 </div>
             </div>
+            <TmgBehindScenesVideo/>
             <WhyTMG />
 
         </>
