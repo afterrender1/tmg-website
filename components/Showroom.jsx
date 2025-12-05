@@ -65,49 +65,49 @@ const allMakes = ["All Makes", ...new Set(ALL_VEHICLES_DATA.map(v => v.make))];
 
 // Vehicle Card component converted to motion.div
 const VehicleCard = ({ vehicle }) => (
-  <motion.div
-    variants={itemVariants}
-    className="flex flex-col bg-white rounded-xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
-  >
-    <div className="relative w-full h-48 sm:h-72 bg-gray-100 rounded-t-xl overflow-hidden">
-      <img
-        src={vehicle.imageSrc}
-        alt={vehicle.title}
-        className="object-cover w-full h-full transition-transform duration-500 hover:scale-[1.05]"
-        loading="lazy"
-      />
-    </div>
+    <motion.div
+        variants={itemVariants}
+        className="flex flex-col bg-white rounded-xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+    >
+        <div className="relative w-full h-48 sm:h-72 bg-gray-100 rounded-t-xl overflow-hidden">
+            <img
+                src={vehicle.imageSrc}
+                alt={vehicle.title}
+                className="object-cover w-full h-full transition-transform duration-500 hover:scale-[1.05]"
+                loading="lazy"
+            />
+        </div>
 
-    <div className="p-5 grow">
-      <p className={`text-xs font-semibold text-gray-700 uppercase tracking-wide mb-1 ${poppins.className}`}>
-        {vehicle.make} {vehicle.model}
-      </p>
-      <h3 className={`text-lg font-bold text-gray-900 leading-snug mb-3 ${montserrat.className}`}>
-        {vehicle.makeModel.substring(0, 80) + '...'}
-      </h3>
-      <span className={`inline-block bg-amber-50 text-amber-800 text-xs font-medium px-3 py-1 rounded-full ${poppins.className}`}>
-        {vehicle.highlight.split('+')[0]}
-      </span>
-    </div>
+        <div className="p-5 grow">
+            <p className={`text-xs font-semibold text-gray-700 uppercase tracking-wide mb-1 ${poppins.className}`}>
+                {vehicle.make} {vehicle.model}
+            </p>
+            <h3 className={`text-lg font-bold text-gray-900 leading-snug mb-3 ${montserrat.className}`}>
+                {vehicle.makeModel.substring(0, 80) + '...'}
+            </h3>
+            <span className={`inline-block bg-amber-50 text-amber-800 text-xs font-medium px-3 py-1 rounded-full ${poppins.className}`}>
+                {vehicle.highlight.split('+')[0]}
+            </span>
+        </div>
 
-    <div className="border-t border-gray-100 p-5 pt-4">
-      <p className={`text-3xl font-extrabold text-black mb-1 ${montserrat.className}`}>
-        {vehicle.price}
-      </p>
-      <p className={`text-sm text-gray-600 ${poppins.className}`}>
-        {vehicle.monthlyPayment} (Estimate)
-      </p>
+        <div className="border-t border-gray-100 p-5 pt-4">
+            <p className={`text-3xl font-extrabold text-black mb-1 ${montserrat.className}`}>
+                {vehicle.price}
+            </p>
+            <p className={`text-sm text-gray-600 ${poppins.className}`}>
+                {vehicle.monthlyPayment} (Estimate)
+            </p>
 
-      {/* ✅ Fix: Only use motion.button, not nested button */}
-      <motion.button
-        whileTap={{ scale: 0.95 }}
-        className={`mt-4 w-full py-2.5 text-sm font-semibold uppercase border tracking-wider rounded text-white bg-black
+            {/* ✅ Fix: Only use motion.button, not nested button */}
+            <motion.button
+                whileTap={{ scale: 0.95 }}
+                className={`mt-4 w-full py-2.5 text-sm font-semibold uppercase border tracking-wider rounded text-white bg-black
         hover:text-black hover:bg-white hover:border-black transition-colors duration-200 ${poppins.className}`}
-      >
-        Check Availability
-      </motion.button>
-    </div>
-  </motion.div>
+            >
+                Check Availability
+            </motion.button>
+        </div>
+    </motion.div>
 );
 
 
